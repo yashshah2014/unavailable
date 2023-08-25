@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ops GPT</title>
-    <link href="images/favicon.ico" rel="icon" type="image/x-icon">
     <style>
         html, body { padding: 0; margin: 0; width: 100%; height: 100%; }
         * {box-sizing: border-box;}
@@ -52,7 +51,7 @@
 </head>
 <body>
     <div class="header">
-        <img class="header-icon" src="static/amdocs-logo.svg" alt="Header Icon">
+        <img class="header-icon" src="amdocs-logo.svg" alt="Header Icon">
         <div class="header-pipe"></div>
         <div class="MuiToolbar-root MuiToolbar-regular css-12o98wt" >Ops GPT</div>
     </div>
@@ -71,39 +70,6 @@
         </div>
     </div>
         </div>
-    </article>
- <script>
-       
-        function tryAgain() {
-        	console.log('Try Again..');
-            setTimeout(function () {
-                updateCountdownTimer();
-            }, 5000); // Update every 5 second
-        }
-        
-        // Function to update the countdown timer
-        function updateCountdownTimer() {
-           	fetch('/api/healthcheck')
-               .then(response => response.text())
-               .then(response =>{
-               	console.log('Health Check API Response:', response); // Log the entire response object
-               	if (response.includes("OK")) {
-               		console.log('Returned a 200 response with message OK in it.The systme is now online :)..Redirecting..');
-                       // Time has passed, reload the page
-                       location.reload();
-                   } else {
-                   	console.log('Did not return a OK response.Retrying..');
-                   	tryAgain()
-                   }
-               })
-               .catch(error => {
-                   console.error('Error:', error,'Retrying..');
-                   tryAgain()
-               });
-        }
-
-        // Start the countdown timer
-        updateCountdownTimer();
-    </script>        
+    </article>       
 </body>
 </html>
