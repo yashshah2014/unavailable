@@ -87,6 +87,8 @@
                .then(response => response.text())
                .then(response =>{
                	console.log('Health Check API Response:', response); // Log the entire response object
+		// Check if respose is a json
+	        var obj = JSON.parse(response);	
                	if (response.includes("message") && response.includes("200") && response.includes("status") && response.includes("OK")) {
                		console.log('Returned a 200 response with message OK in it.The systme is now online :)..Redirecting..');
                        // Time has passed, reload the page
